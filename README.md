@@ -1,6 +1,7 @@
 # SpecFlow.Gherkin
 SpecFlow Gherkin
 
+### docker-compose.yml
 ```yaml
 version: '3.4'
 
@@ -14,6 +15,28 @@ services:
             ACCEPT_EULA: 'Y'
 ```
 
+### PowerShell
 ```shell
 docker-compose up --build
+```
+
+### appsettings.Development.json
+```json
+"ConnectionStrings": {
+    "CustomerBase": {
+      "ConnectionString": "Server=localhost,1433;Database=CustomerBase;User ID=sa;Password=P@ssword"
+    }
+  }
+```
+
+### Startup.cs
+```csharp
+public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddHealthChecks()
+                .AddSqlServer(
+                    name: "CustomerBase",
+                    connectionString: Configuration["ConnectionStrings:CustomerBase:ConnectionString"],
+                    tags: new string[] { "sqlserver" });
+        }
 ```
