@@ -34,4 +34,8 @@
     <Folder Include="Steps\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SpecFlow.Gherkin.Api\SpecFlow.Gherkin.Api.csproj" />
+  </ItemGroup>
+
 </Project>

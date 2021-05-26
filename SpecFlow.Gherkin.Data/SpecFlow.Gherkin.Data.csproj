@@ -4,4 +4,8 @@
     <TargetFramework>netstandard2.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SpecFlow.Gherkin.Domain\SpecFlow.Gherkin.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

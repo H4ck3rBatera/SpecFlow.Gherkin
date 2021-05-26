@@ -15,4 +15,8 @@
     <Folder Include="Controllers\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SpecFlow.Gherkin.Data\SpecFlow.Gherkin.Data.csproj" />
+  </ItemGroup>
+
 </Project>
