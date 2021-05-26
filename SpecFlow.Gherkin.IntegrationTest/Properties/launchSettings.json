@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "SpecFlow.Gherkin.IntegrationTest": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}
