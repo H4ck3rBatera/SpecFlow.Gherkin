@@ -8,6 +8,7 @@ using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using SpecFlow.Gherkin.Data.Support.Extensions;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -34,6 +35,11 @@ namespace SpecFlow.Gherkin.Api
                     name: "CustomerBase",
                     connectionString: Configuration["ConnectionStrings:CustomerBase:ConnectionString"],
                     tags: new string[] { "sqlserver" });
+
+            services.AddOptions();
+
+            services
+                .AddData(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
