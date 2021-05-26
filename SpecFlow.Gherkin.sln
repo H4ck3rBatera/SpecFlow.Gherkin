@@ -11,11 +11,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Domain", "2 - Domain", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpecFlow.Gherkin.Domain", "SpecFlow.Gherkin.Domain\SpecFlow.Gherkin.Domain.csproj", "{1A870580-9A59-48DB-B1D5-744B307925A9}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - IntegrationTest", "3 - IntegrationTest", "{4022B608-7F1C-44F4-9044-E0B56942CC54}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - IntegrationTest", "4 - IntegrationTest", "{4022B608-7F1C-44F4-9044-E0B56942CC54}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpecFlow.Gherkin.IntegrationTest", "SpecFlow.Gherkin.IntegrationTest\SpecFlow.Gherkin.IntegrationTest.csproj", "{35C227D1-9914-49D5-B269-EE9835B9DD10}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{76903F90-DD46-4954-BD95-A1A94CF39B26}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Data", "3 - Data", "{5FB46DDE-750E-4294-968F-50937123552E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecFlow.Gherkin.Data", "SpecFlow.Gherkin.Data\SpecFlow.Gherkin.Data.csproj", "{01138C63-DC98-4FB1-87D6-B6767E160825}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +43,10 @@ Global
 		{76903F90-DD46-4954-BD95-A1A94CF39B26}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{76903F90-DD46-4954-BD95-A1A94CF39B26}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{76903F90-DD46-4954-BD95-A1A94CF39B26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01138C63-DC98-4FB1-87D6-B6767E160825}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01138C63-DC98-4FB1-87D6-B6767E160825}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01138C63-DC98-4FB1-87D6-B6767E160825}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01138C63-DC98-4FB1-87D6-B6767E160825}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -47,6 +55,7 @@ Global
 		{030E15FA-F29F-4FE9-8BD1-5329D27D0EAC} = {A71F9CA2-AD0F-45C2-8047-B40CDC874E3F}
 		{1A870580-9A59-48DB-B1D5-744B307925A9} = {C882DB06-F167-4DE8-B2AE-4D7492193441}
 		{35C227D1-9914-49D5-B269-EE9835B9DD10} = {4022B608-7F1C-44F4-9044-E0B56942CC54}
+		{01138C63-DC98-4FB1-87D6-B6767E160825} = {5FB46DDE-750E-4294-968F-50937123552E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EF8AA1E1-1963-4D0D-993C-DB60B4EF280D}
