@@ -7,6 +7,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Presentation", "1 - Pre
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecFlow.Gherkin.Api", "SpecFlow.Gherkin.Api\SpecFlow.Gherkin.Api.csproj", "{030E15FA-F29F-4FE9-8BD1-5329D27D0EAC}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Domain", "2 - Domain", "{C882DB06-F167-4DE8-B2AE-4D7492193441}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecFlow.Gherkin.Domain", "SpecFlow.Gherkin.Domain\SpecFlow.Gherkin.Domain.csproj", "{1A870580-9A59-48DB-B1D5-744B307925A9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,12 +21,17 @@ Global
 		{030E15FA-F29F-4FE9-8BD1-5329D27D0EAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{030E15FA-F29F-4FE9-8BD1-5329D27D0EAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{030E15FA-F29F-4FE9-8BD1-5329D27D0EAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A870580-9A59-48DB-B1D5-744B307925A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A870580-9A59-48DB-B1D5-744B307925A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A870580-9A59-48DB-B1D5-744B307925A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A870580-9A59-48DB-B1D5-744B307925A9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{030E15FA-F29F-4FE9-8BD1-5329D27D0EAC} = {A71F9CA2-AD0F-45C2-8047-B40CDC874E3F}
+		{1A870580-9A59-48DB-B1D5-744B307925A9} = {C882DB06-F167-4DE8-B2AE-4D7492193441}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EF8AA1E1-1963-4D0D-993C-DB60B4EF280D}
