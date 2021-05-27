@@ -23,7 +23,6 @@ namespace SpecFlow.Gherkin.Api
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddLogging();
@@ -31,6 +30,10 @@ namespace SpecFlow.Gherkin.Api
             services.AddControllers();
 
             services.AddHealthChecks()
+                .AddSqlServer(
+                    name: "Database",
+                    connectionString: Configuration["ConnectionStrings:Database:ConnectionString"],
+                    tags: new string[] { "sqlserver" })
                 .AddSqlServer(
                     name: "CustomerBase",
                     connectionString: Configuration["ConnectionStrings:CustomerBase:ConnectionString"],
@@ -40,9 +43,11 @@ namespace SpecFlow.Gherkin.Api
 
             services
                 .AddData(Configuration);
+
+            services.BuildServiceProvider()
+                .AddDataProvider();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
