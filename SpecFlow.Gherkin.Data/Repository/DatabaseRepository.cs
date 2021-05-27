@@ -34,8 +34,11 @@ namespace SpecFlow.Gherkin.Data.Repository
                     {
                         await command.Connection.OpenAsync(cancellationToken);
                         await command.ExecuteNonQueryAsync(cancellationToken);
-                    }
+                        await command.Connection.CloseAsync();
+                    }                    
                 }
+
+                _logger.LogInformation($"Created Database!");
             }
             catch (Exception ex)
             {
