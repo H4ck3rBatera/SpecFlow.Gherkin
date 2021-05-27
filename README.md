@@ -1,5 +1,7 @@
 # SpecFlow.Gherkin
-SpecFlow Gherkin
+
+    Visual Studio Extensions:
+    	SpecFlow for Visual Studio 2019
 
 ### docker-compose.yml
 ```yaml
