@@ -58,11 +58,10 @@ namespace SpecFlow.Gherkin.IntegrationTest.Steps
                 .ConfigureAwait(false);
         }
 
-        [Then(@"the result should be the Full Name ""(.*)"" registered")]
-        public void ThenTheResultShouldBeTheFullNameRegistered(string fullName)
+        [Then(@"the result should be the Full Name registered")]
+        public void ThenTheResultShouldBeTheFullNameRegistered()
         {
             ScenarioContext.Current.Pending();
         }
-
     }
 }

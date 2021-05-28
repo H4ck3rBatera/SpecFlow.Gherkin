@@ -8,11 +8,12 @@ using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using SpecFlow.Gherkin.Data.Support.Extensions;
-using SpecFlow.Gherkin.Domain.Support.Extensions;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.OpenApi.Models;
+using SpecFlow.Gherkin.Domain.Support.Extensions;
+using SpecFlow.Gherkin.Data.DDL.Support.Options.Extensions;
+using SpecFlow.Gherkin.Data.DML.Support.Options.Extensions;
 
 namespace SpecFlow.Gherkin.Api
 {
@@ -45,7 +46,8 @@ namespace SpecFlow.Gherkin.Api
 
             services
                 .AddDomain(Configuration)
-                .AddData(Configuration);
+                .AddDdlData(Configuration)
+                .AddDmlData(Configuration);
 
             services.BuildServiceProvider()
                 .AddDataProvider();

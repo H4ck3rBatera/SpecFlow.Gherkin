@@ -15,7 +15,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SpecFlow.Gherkin.Data\SpecFlow.Gherkin.Data.csproj" />
+    <ProjectReference Include="..\SpecFlow.Gherkin.Data.DDL\SpecFlow.Gherkin.Data.DDL.csproj" />
+    <ProjectReference Include="..\SpecFlow.Gherkin.Data.DML\SpecFlow.Gherkin.Data.DML.csproj" />
   </ItemGroup>
 
 </Project>

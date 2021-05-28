@@ -1,4 +1,4 @@
-﻿namespace SpecFlow.Gherkin.Data.Support.Options.Databases
+﻿namespace SpecFlow.Gherkin.Data.DDL.Support.Options.Databases
 {
     public class DatabaseOption
     {

@@ -1,4 +1,4 @@
-﻿namespace SpecFlow.Gherkin.Data.Support.Options.Databases
+﻿namespace SpecFlow.Gherkin.Data.DML.Support.Options.Databases
 {
     public class CustomerBaseOption
     {

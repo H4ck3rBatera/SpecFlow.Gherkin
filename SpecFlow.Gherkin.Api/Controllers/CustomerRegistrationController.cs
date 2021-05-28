@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using SpecFlow.Gherkin.Domain.Models;
 using SpecFlow.Gherkin.Domain.Services.Interfaces;
 using System.Net;
@@ -11,16 +12,22 @@ namespace SpecFlow.Gherkin.Api.Controllers
     [ApiController]
     public class CustomerRegistrationController : ControllerBase
     {
+        private readonly ILogger _logger;
         private readonly ICustomerRegistrationService _customerRegistrationService;
 
-        public CustomerRegistrationController(ICustomerRegistrationService customerRegistrationService)
+        public CustomerRegistrationController(
+            ILogger<CustomerRegistrationController> logger,
+            ICustomerRegistrationService customerRegistrationService)
         {
+            _logger = logger;
             _customerRegistrationService = customerRegistrationService;
         }
 
         [HttpPost]
         public async Task<IActionResult> PostAsync(Customer customer, CancellationToken cancellationToken)
         {
+            _logger.LogInformation($"Entering {nameof(PostAsync)}");
+
             try
             {
                 var id = await _customerRegistrationService.RegisterAsync(customer, cancellationToken).ConfigureAwait(false);

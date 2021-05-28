@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SpecFlow.Gherkin.Data.Scripts {
+namespace SpecFlow.Gherkin.Data.DDL.Scripts {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace SpecFlow.Gherkin.Data.Scripts {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SpecFlow.Gherkin.Data.Scripts.Resource", typeof(Resource).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SpecFlow.Gherkin.Data.DDL.Scripts.Resource", typeof(Resource).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -69,6 +69,21 @@ namespace SpecFlow.Gherkin.Data.Scripts {
         internal static string CreateDatabase {
             get {
                 return ResourceManager.GetString("CreateDatabase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CREATE TABLE Customer
+        ///  (
+        ///     ID       INT NOT NULL,
+        ///     Name     NVARCHAR(50) NOT NULL,
+        ///     LastName NVARCHAR(50) NOT NULL,
+        ///     CONSTRAINT pk_customer PRIMARY KEY CLUSTERED (id ASC)
+        ///  ).
+        /// </summary>
+        internal static string CreateTableCustomer {
+            get {
+                return ResourceManager.GetString("CreateTableCustomer", resourceCulture);
             }
         }
     }
