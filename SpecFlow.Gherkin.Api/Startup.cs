@@ -9,8 +9,10 @@ using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using SpecFlow.Gherkin.Data.Support.Extensions;
+using SpecFlow.Gherkin.Domain.Support.Extensions;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.OpenApi.Models;
 
 namespace SpecFlow.Gherkin.Api
 {
@@ -42,10 +44,18 @@ namespace SpecFlow.Gherkin.Api
             services.AddOptions();
 
             services
+                .AddDomain(Configuration)
                 .AddData(Configuration);
 
             services.BuildServiceProvider()
                 .AddDataProvider();
+
+            services.AddMvc();
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "SpecFlow Gherkin Api", Version = "v1" });
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -73,6 +83,11 @@ namespace SpecFlow.Gherkin.Api
                     ResponseWriter = WriteResponse
                 });
             });
+
+            app.UseSwagger().UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("v1/swagger.json", "SpecFlow Gherkin Api V1");
+            }); ;
         }
 
         private static Task WriteResponse(HttpContext context, HealthReport result)
