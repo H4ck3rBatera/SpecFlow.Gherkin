@@ -1,4 +1,4 @@
-IF NOT EXISTS(SELECT * FROM sysobjects WHERE NAME = 'Customer' AND xtype = 'U')
+IF NOT EXISTS(SELECT * FROM sys.tables WHERE NAME = 'Customer' AND type = 'U')
 BEGIN
     CREATE TABLE Customer
       (

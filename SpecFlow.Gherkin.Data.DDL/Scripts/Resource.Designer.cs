@@ -73,13 +73,16 @@ namespace SpecFlow.Gherkin.Data.DDL.Scripts {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to CREATE TABLE Customer
-        ///  (
-        ///     ID       INT NOT NULL,
-        ///     Name     NVARCHAR(50) NOT NULL,
-        ///     LastName NVARCHAR(50) NOT NULL,
-        ///     CONSTRAINT pk_customer PRIMARY KEY CLUSTERED (id ASC)
-        ///  ).
+        ///   Looks up a localized string similar to IF NOT EXISTS(SELECT * FROM sys.tables WHERE NAME = &apos;Customer&apos; AND type = &apos;U&apos;)
+        ///BEGIN
+        ///    CREATE TABLE Customer
+        ///      (
+        ///         ID       INT NOT NULL,
+        ///         Name     NVARCHAR(50) NOT NULL,
+        ///         LastName NVARCHAR(50) NOT NULL,
+        ///         CONSTRAINT pk_customer PRIMARY KEY CLUSTERED (id ASC)
+        ///      )
+        ///END.
         /// </summary>
         internal static string CreateTableCustomer {
             get {
