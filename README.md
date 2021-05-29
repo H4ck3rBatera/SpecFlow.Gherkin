@@ -19,7 +19,7 @@ Scenario: Register Name and Last Name
 
 ### CustomerRegistrationStep.cs
 ```csharp
-[Binding]
+	[Binding]
     public sealed class CustomerRegistrationStep
     {
         private readonly Customer _customer;
