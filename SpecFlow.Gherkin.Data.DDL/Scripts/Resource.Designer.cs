@@ -77,7 +77,7 @@ namespace SpecFlow.Gherkin.Data.DDL.Scripts {
         ///BEGIN
         ///    CREATE TABLE Customer
         ///      (
-        ///         ID       INT NOT NULL,
+        ///         ID       INT IDENTITY(1,1) NOT NULL,
         ///         Name     NVARCHAR(50) NOT NULL,
         ///         LastName NVARCHAR(50) NOT NULL,
         ///         CONSTRAINT pk_customer PRIMARY KEY CLUSTERED (id ASC)

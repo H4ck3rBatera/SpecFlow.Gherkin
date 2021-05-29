@@ -1,10 +1,10 @@
-﻿using SpecFlow.Gherkin.Domain.Repository;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SpecFlow.Gherkin.Data.DML.Repository;
 using SpecFlow.Gherkin.Data.DML.Support.Options.Databases;
+using SpecFlow.Gherkin.Domain.Repository;
 
-namespace SpecFlow.Gherkin.Data.DML.Support.Options.Extensions
+namespace SpecFlow.Gherkin.Data.DML.Support.Extensions
 {
     public static class ServiceCollectionExtension
     {

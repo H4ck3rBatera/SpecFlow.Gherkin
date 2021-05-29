@@ -28,9 +28,9 @@ namespace SpecFlow.Gherkin.Data.DDL.Definition
 
             try
             {
-                using (var connection = new SqlConnection(_databaseOption.ConnectionString))
+                await using (var connection = new SqlConnection(_databaseOption.ConnectionString))
                 {
-                    using (var command = new SqlCommand(Resource.CreateDatabase, connection))
+                    await using (var command = new SqlCommand(Resource.CreateDatabase, connection))
                     {
                         await command.Connection.OpenAsync(cancellationToken);
                         await command.ExecuteNonQueryAsync(cancellationToken);

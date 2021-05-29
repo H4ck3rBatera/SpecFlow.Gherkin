@@ -6,6 +6,9 @@ using SpecFlow.Gherkin.Domain.Repository;
 using System.Threading;
 using SpecFlow.Gherkin.Domain.Models;
 using SpecFlow.Gherkin.Data.DML.Support.Options.Databases;
+using Microsoft.Data.SqlClient;
+using Dapper;
+using SpecFlow.Gherkin.Data.DML.Scripts;
 
 namespace SpecFlow.Gherkin.Data.DML.Repository
 {
@@ -22,24 +25,26 @@ namespace SpecFlow.Gherkin.Data.DML.Repository
             _customerBaseOption = customerBaseOption.Value;
         }
 
-        public Task<int> RegisterAsync(Customer customer, CancellationToken cancellationToken)
+        public async Task<int> RegisterAsync(Customer customer, CancellationToken cancellationToken)
         {
             _logger.LogInformation($"Entering {nameof(RegisterAsync)}");
 
             try
             {
-                //using (var connection = new SqlConnection(_customerBaseOption.ConnectionString))
-                //{
-                //    using (var command = new SqlCommand(Resource., connection))
-                //    {
-                //        await command.Connection.OpenAsync(cancellationToken);
-                //        await command.ExecuteNonQueryAsync(cancellationToken);
-                //        await command.Connection.CloseAsync();
-                //    }
-                //}
+                int id;
 
-                //_logger.LogInformation($"Created Customer!");
-                return null;
+                await using (var connection = new SqlConnection(_customerBaseOption.ConnectionString))
+                {
+                    await connection.OpenAsync(cancellationToken);
+
+                    id = await connection.QuerySingleAsync<int>(Resource.InsertCustomer, customer);
+
+                    await connection.CloseAsync();
+                }
+
+                _logger.LogInformation($"Created Customer!");
+
+                return id;
             }
             catch (Exception ex)
             {

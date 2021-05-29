@@ -3,7 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using SpecFlow.Gherkin.Data.DDL.Definition;
 using SpecFlow.Gherkin.Data.DDL.Support.Options.Databases;
 
-namespace SpecFlow.Gherkin.Data.DDL.Support.Options.Extensions
+namespace SpecFlow.Gherkin.Data.DDL.Support.Extensions
 {
     public static class ServiceCollectionExtension
     {

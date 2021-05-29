@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Logging;
 using SpecFlow.Gherkin.Domain.Models;
 using SpecFlow.Gherkin.Domain.Services.Interfaces;
+using System;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
@@ -34,8 +35,9 @@ namespace SpecFlow.Gherkin.Api.Controllers
 
                 return Ok(id);
             }
-            catch
+            catch (Exception ex)
             {
+                _logger.LogError(ex, ex.Message);
                 return StatusCode((int)HttpStatusCode.InternalServerError);
             }
         }

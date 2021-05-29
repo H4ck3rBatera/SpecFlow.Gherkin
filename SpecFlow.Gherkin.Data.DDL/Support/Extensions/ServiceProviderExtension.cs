@@ -1,9 +1,9 @@
 ﻿using System;
-using Microsoft.Extensions.DependencyInjection;
 using System.Threading;
+using Microsoft.Extensions.DependencyInjection;
 using SpecFlow.Gherkin.Data.DDL.Definition;
 
-namespace SpecFlow.Gherkin.Data.DDL.Support.Options.Extensions
+namespace SpecFlow.Gherkin.Data.DDL.Support.Extensions
 {
     public static class ServiceProviderExtension
     {
@@ -24,7 +24,7 @@ namespace SpecFlow.Gherkin.Data.DDL.Support.Options.Extensions
             CancellationToken cancellationToken)
         {
             var service = serviceProvider.GetService<Database>();
-            service.CreateAsync(cancellationToken).Wait();
+            service?.CreateAsync(cancellationToken).Wait();
 
             return serviceProvider;
         }
@@ -34,7 +34,7 @@ namespace SpecFlow.Gherkin.Data.DDL.Support.Options.Extensions
             CancellationToken cancellationToken)
         {
             var service = serviceProvider.GetService<TableCustomer>();
-            service.CreateAsync(cancellationToken).Wait();
+            service?.CreateAsync(cancellationToken).Wait();
 
             return serviceProvider;
         }

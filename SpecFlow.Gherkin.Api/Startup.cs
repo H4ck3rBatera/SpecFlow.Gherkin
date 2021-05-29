@@ -11,9 +11,9 @@ using Newtonsoft.Json.Linq;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.OpenApi.Models;
+using SpecFlow.Gherkin.Data.DDL.Support.Extensions;
+using SpecFlow.Gherkin.Data.DML.Support.Extensions;
 using SpecFlow.Gherkin.Domain.Support.Extensions;
-using SpecFlow.Gherkin.Data.DDL.Support.Options.Extensions;
-using SpecFlow.Gherkin.Data.DML.Support.Options.Extensions;
 
 namespace SpecFlow.Gherkin.Api
 {
@@ -36,11 +36,11 @@ namespace SpecFlow.Gherkin.Api
                 .AddSqlServer(
                     name: "Database",
                     connectionString: Configuration["ConnectionStrings:Database:ConnectionString"],
-                    tags: new string[] { "sqlserver" })
+                    tags: new[] { "SqlServer" })
                 .AddSqlServer(
                     name: "CustomerBase",
                     connectionString: Configuration["ConnectionStrings:CustomerBase:ConnectionString"],
-                    tags: new string[] { "sqlserver" });
+                    tags: new[] { "SqlServer" });
 
             services.AddOptions();
 
@@ -49,8 +49,8 @@ namespace SpecFlow.Gherkin.Api
                 .AddDdlData(Configuration)
                 .AddDmlData(Configuration);
 
-            services.BuildServiceProvider()
-                .AddDataProvider();
+            _ = services.BuildServiceProvider()
+                    .AddDataProvider();
 
             services.AddMvc();
 
@@ -89,7 +89,7 @@ namespace SpecFlow.Gherkin.Api
             app.UseSwagger().UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("v1/swagger.json", "SpecFlow Gherkin Api V1");
-            }); ;
+            });
         }
 
         private static Task WriteResponse(HttpContext context, HealthReport result)

@@ -59,5 +59,16 @@ namespace SpecFlow.Gherkin.Data.DML.Scripts {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to INSERT INTO Customer (Name, LastName)
+        ///VALUES (@Name, @LastName);
+        ///SELECT SCOPE_IDENTITY();.
+        /// </summary>
+        internal static string InsertCustomer {
+            get {
+                return ResourceManager.GetString("InsertCustomer", resourceCulture);
+            }
+        }
     }
 }

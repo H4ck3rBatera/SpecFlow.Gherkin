@@ -5,6 +5,8 @@ using SpecFlow.Gherkin.IntegrationTest.Support.Extensions;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using FluentAssertions;
+using Newtonsoft.Json;
 using TechTalk.SpecFlow;
 
 namespace SpecFlow.Gherkin.IntegrationTest.Steps
@@ -12,18 +14,15 @@ namespace SpecFlow.Gherkin.IntegrationTest.Steps
     [Binding]
     public sealed class CustomerRegistrationStep
     {
-        private readonly ScenarioContext _scenarioContext;
-        private readonly WebApplicationFactory<Startup> _factory;
         private readonly Customer _customer;
         private readonly HttpClient _client;
         private HttpResponseMessage _response;
 
-        public CustomerRegistrationStep(ScenarioContext scenarioContext, WebApplicationFactory<Startup> factory)
+        public CustomerRegistrationStep(WebApplicationFactory<Startup> webApplicationFactory)
         {
-            _scenarioContext = scenarioContext;
             _customer = new Customer();
 
-            _factory = factory.WithWebHostBuilder(builder =>
+            var factory = webApplicationFactory.WithWebHostBuilder(builder =>
             {
                 builder.ConfigureAppConfiguration((host, config) =>
                 {
@@ -31,7 +30,7 @@ namespace SpecFlow.Gherkin.IntegrationTest.Steps
                 });
             });
 
-            _client = _factory.CreateClient();
+            _client = factory.CreateClient();
         }
 
         [Given(@"I have entered Name ""(.*)"" into the form")]
@@ -59,9 +58,14 @@ namespace SpecFlow.Gherkin.IntegrationTest.Steps
         }
 
         [Then(@"the result should be the Full Name registered")]
-        public void ThenTheResultShouldBeTheFullNameRegistered()
+        public async Task ThenTheResultShouldBeTheFullNameRegistered()
         {
-            ScenarioContext.Current.Pending();
+            _response.EnsureSuccessStatusCode();
+
+            var body = await _response.Content.ReadAsStringAsync().ConfigureAwait(false);
+            var actual = JsonConvert.DeserializeObject<int>(body);
+
+            actual.Should().NotBe(0);
         }
     }
 }
