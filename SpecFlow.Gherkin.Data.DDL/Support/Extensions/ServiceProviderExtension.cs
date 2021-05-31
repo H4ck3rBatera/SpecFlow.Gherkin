@@ -12,14 +12,12 @@ namespace SpecFlow.Gherkin.Data.DDL.Support.Extensions
             var source = new CancellationTokenSource();
             var token = source.Token;
 
-            serviceProvider
-                .CreateDatabase(token)
-                .CreateTableCustomer(token);
-
-            return serviceProvider;
+            return serviceProvider
+                    .CreateDatabase(token)
+                    .CreateTableCustomer(token);
         }
 
-        public static IServiceProvider CreateDatabase(
+        private static IServiceProvider CreateDatabase(
             this IServiceProvider serviceProvider,
             CancellationToken cancellationToken)
         {
@@ -29,7 +27,7 @@ namespace SpecFlow.Gherkin.Data.DDL.Support.Extensions
             return serviceProvider;
         }
 
-        public static IServiceProvider CreateTableCustomer(
+        private static IServiceProvider CreateTableCustomer(
             this IServiceProvider serviceProvider,
             CancellationToken cancellationToken)
         {
