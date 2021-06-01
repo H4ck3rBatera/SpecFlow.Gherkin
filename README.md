@@ -11,15 +11,28 @@ Feature: Manage Basic Customer Registration
 
 @CustomerRegistration
 Scenario: Register Name and Last Name
-	Given I have entered Name "Jessé" into the form
-	And I have entered Last Name "Toledo" into the form
+	Given I have entered Name Jessé into the form
+	And I have entered Last Name Toledo into the form
 	When I press add
 	Then the result should be the Full Name registered
+
+@CustomerRegistration
+Scenario: Unregistered Name and Last Name
+	Given I have entered Name <Name> into the form
+	And I have entered Last Name <LastName> into the form
+	When I press add
+	Then the result should be the Full Name unregistered
+
+	Examples:
+		| Name   | LastName |
+		| <null> | Toledo   |
+		| Jessé  | <null>   |
+		| <null> | <null>   |
 ```
 
 ### CustomerRegistrationStep.cs
 ```csharp
-	[Binding]
+	 [Binding]
     public sealed class CustomerRegistrationStep
     {
         private readonly Customer _customer;
@@ -41,13 +54,13 @@ Scenario: Register Name and Last Name
             _client = factory.CreateClient();
         }
 
-        [Given(@"I have entered Name ""(.*)"" into the form")]
+        [Given(@"I have entered Name (.*) into the form")]
         public void GivenIHaveEnteredNameIntoTheForm(string name)
         {
             _customer.Name = name;
         }
 
-        [Given(@"I have entered Last Name ""(.*)"" into the form")]
+        [Given(@"I have entered Last Name (.*) into the form")]
         public void GivenIHaveEnteredLastNameIntoTheForm(string lastName)
         {
             _customer.LastName = lastName;
@@ -75,6 +88,13 @@ Scenario: Register Name and Last Name
 
             actual.Should().NotBe(0);
         }
+
+        [Then(@"the result should be the Full Name unregistered")]
+        public void ThenTheResultShouldBeTheFullNameUnregistered()
+        {
+            _response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+        }
+
     }
 ```
 
@@ -88,6 +108,19 @@ public static class ConfigurationExtensions
                                 .AddJsonFile($"appsettings.{webHostEnvironment.EnvironmentName}.json", optional: true, reloadOnChange: false);
 
             return configurationBuilder;
+        }
+    }
+```
+
+### HooksConfig.cs
+```csharp
+[Binding]
+    public sealed class HooksConfig
+    {
+        [StepArgumentTransformation(@"<null>")]
+        public string ToNull()
+        {
+            return null;
         }
     }
 ```
