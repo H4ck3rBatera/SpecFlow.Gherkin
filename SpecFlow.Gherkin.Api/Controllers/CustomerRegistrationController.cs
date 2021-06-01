@@ -6,6 +6,7 @@ using System;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
+using SpecFlow.Gherkin.Api.ViewModels;
 
 namespace SpecFlow.Gherkin.Api.Controllers
 {
@@ -25,12 +26,14 @@ namespace SpecFlow.Gherkin.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> PostAsync(Customer customer, CancellationToken cancellationToken)
+        public async Task<IActionResult> PostAsync(CustomerViewModel customerViewModel, CancellationToken cancellationToken)
         {
             _logger.LogInformation($"Entering {nameof(PostAsync)}");
 
             try
             {
+                var customer = new Customer { Name = customerViewModel.Name, LastName = customerViewModel.LastName };
+
                 var id = await _customerRegistrationService.RegisterAsync(customer, cancellationToken).ConfigureAwait(false);
 
                 return Ok(id);

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc.Testing;
+﻿using System.Net;
+using Microsoft.AspNetCore.Mvc.Testing;
 using SpecFlow.Gherkin.Api;
 using SpecFlow.Gherkin.Domain.Models;
 using SpecFlow.Gherkin.IntegrationTest.Support.Extensions;
@@ -7,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using FluentAssertions;
 using Newtonsoft.Json;
+using SpecFlow.Gherkin.Api.ViewModels;
 using TechTalk.SpecFlow;
 
 namespace SpecFlow.Gherkin.IntegrationTest.Steps
@@ -33,13 +35,13 @@ namespace SpecFlow.Gherkin.IntegrationTest.Steps
             _client = factory.CreateClient();
         }
 
-        [Given(@"I have entered Name ""(.*)"" into the form")]
+        [Given(@"I have entered Name (.*) into the form")]
         public void GivenIHaveEnteredNameIntoTheForm(string name)
         {
             _customer.Name = name;
         }
 
-        [Given(@"I have entered Last Name ""(.*)"" into the form")]
+        [Given(@"I have entered Last Name (.*) into the form")]
         public void GivenIHaveEnteredLastNameIntoTheForm(string lastName)
         {
             _customer.LastName = lastName;
@@ -67,5 +69,12 @@ namespace SpecFlow.Gherkin.IntegrationTest.Steps
 
             actual.Should().NotBe(0);
         }
+
+        [Then(@"the result should be the Full Name unregistered")]
+        public void ThenTheResultShouldBeTheFullNameUnregistered()
+        {
+            _response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+        }
+
     }
 }
