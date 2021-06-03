@@ -109,9 +109,12 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.And("I have entered Last Name Toledo into the form", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 7
- testRunner.When("I press add", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.And("I have entered Document 969.589.890-40 into the form", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 8
+ testRunner.When("I press add", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 9
  testRunner.Then("the result should be the Full Name registered", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -121,10 +124,11 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Unregistered Name and Last Name")]
         [NUnit.Framework.CategoryAttribute("CustomerRegistration")]
-        [NUnit.Framework.TestCaseAttribute("<null>", "Toledo", null)]
-        [NUnit.Framework.TestCaseAttribute("Jessé", "<null>", null)]
-        [NUnit.Framework.TestCaseAttribute("<null>", "<null>", null)]
-        public virtual void UnregisteredNameAndLastName(string name, string lastName, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("<null>", "Toledo", "086.813.430-92", null)]
+        [NUnit.Framework.TestCaseAttribute("Jessé", "<null>", "961.915.160-70", null)]
+        [NUnit.Framework.TestCaseAttribute("Jessé", "Toledo", "<null>", null)]
+        [NUnit.Framework.TestCaseAttribute("<null>", "<null>", "<null>", null)]
+        public virtual void UnregisteredNameAndLastName(string name, string lastName, string document, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "CustomerRegistration"};
@@ -136,8 +140,9 @@ this.ScenarioInitialize(scenarioInfo);
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("Name", name);
             argumentsOfScenario.Add("LastName", lastName);
+            argumentsOfScenario.Add("Document", document);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Unregistered Name and Last Name", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 11
+#line 12
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -157,16 +162,19 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 12
+#line 13
  testRunner.Given(string.Format("I have entered Name {0} into the form", name), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 13
+#line 14
  testRunner.And(string.Format("I have entered Last Name {0} into the form", lastName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 14
+#line 15
+ testRunner.And(string.Format("I have entered Document {0} into the form", document), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 16
  testRunner.When("I press add", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 15
+#line 17
  testRunner.Then("the result should be the Full Name unregistered", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

@@ -8,5 +8,7 @@ namespace SpecFlow.Gherkin.Api.ViewModels
         public string Name { get; set; }
         [Required]
         public string LastName { get; set; }
+        [Required]
+        public string Document { get; set; }
     }
 }

@@ -46,6 +46,12 @@ namespace SpecFlow.Gherkin.IntegrationTest.Steps
             _customer.LastName = lastName;
         }
 
+        [Given(@"I have entered Document (.*) into the form")]
+        public void GivenIHaveEnteredDocument_IntoTheForm(string document)
+        {
+            _customer.Document = document;
+        }
+        
         [When(@"I press add")]
         public async Task WhenIPressAdd()
         {

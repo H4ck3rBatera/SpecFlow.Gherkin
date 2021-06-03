@@ -61,8 +61,8 @@ namespace SpecFlow.Gherkin.Data.DML.Scripts {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to INSERT INTO Customer (Name, LastName)
-        ///VALUES (@Name, @LastName);
+        ///   Looks up a localized string similar to INSERT INTO Customer (Name, LastName, Document)
+        ///VALUES (@Name, @LastName, @Document);
         ///SELECT SCOPE_IDENTITY();.
         /// </summary>
         internal static string InsertCustomer {

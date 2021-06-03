@@ -32,7 +32,12 @@ namespace SpecFlow.Gherkin.Api.Controllers
 
             try
             {
-                var customer = new Customer { Name = customerViewModel.Name, LastName = customerViewModel.LastName };
+                var customer = new Customer
+                {
+                    Name = customerViewModel.Name, 
+                    LastName = customerViewModel.LastName,
+                    Document = customerViewModel.Document
+                };
 
                 var id = await _customerRegistrationService.RegisterAsync(customer, cancellationToken).ConfigureAwait(false);
 
