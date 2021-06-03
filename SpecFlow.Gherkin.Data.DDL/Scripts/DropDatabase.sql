@@ -1,0 +1,6 @@
+IF EXISTS(SELECT * FROM sys.databases WHERE name = 'CustomerBase')
+BEGIN
+	USE master;
+	ALTER DATABASE CustomerBase SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+	DROP DATABASE CustomerBase;
+END

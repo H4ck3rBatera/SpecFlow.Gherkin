@@ -89,5 +89,19 @@ namespace SpecFlow.Gherkin.Data.DDL.Scripts {
                 return ResourceManager.GetString("CreateTableCustomer", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IF EXISTS(SELECT * FROM sys.databases WHERE name = &apos;CustomerBase&apos;)
+        ///BEGIN
+        ///	USE master;
+        ///	ALTER DATABASE CustomerBase SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+        ///	DROP DATABASE CustomerBase;
+        ///END.
+        /// </summary>
+        internal static string DropDatabase {
+            get {
+                return ResourceManager.GetString("DropDatabase", resourceCulture);
+            }
+        }
     }
 }

@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using FluentAssertions;
 using Newtonsoft.Json;
-using SpecFlow.Gherkin.Api.ViewModels;
 using TechTalk.SpecFlow;
 
 namespace SpecFlow.Gherkin.IntegrationTest.Steps
@@ -26,9 +25,9 @@ namespace SpecFlow.Gherkin.IntegrationTest.Steps
 
             var factory = webApplicationFactory.WithWebHostBuilder(builder =>
             {
-                builder.ConfigureAppConfiguration((host, config) =>
+                builder.ConfigureAppConfiguration((webHostBuilderContext, configurationBuilder) =>
                 {
-                    config.AddTestConfig(host.HostingEnvironment);
+                    configurationBuilder.AddTestConfig(webHostBuilderContext.HostingEnvironment);
                 });
             });
 
@@ -75,6 +74,5 @@ namespace SpecFlow.Gherkin.IntegrationTest.Steps
         {
             _response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
         }
-
     }
 }

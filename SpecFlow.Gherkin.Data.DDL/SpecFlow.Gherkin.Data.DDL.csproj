@@ -7,9 +7,13 @@
   <ItemGroup>
     <None Remove="Scripts\CreateDatabase.sql" />
     <None Remove="Scripts\CreateTableCustomer.sql" />
+    <None Remove="Scripts\DropDatabase.sql" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Scripts\DropDatabase.sql">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Scripts\CreateTableCustomer.sql">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </EmbeddedResource>

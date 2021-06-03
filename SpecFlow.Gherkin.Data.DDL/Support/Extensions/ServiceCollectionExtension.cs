@@ -14,8 +14,8 @@ namespace SpecFlow.Gherkin.Data.DDL.Support.Extensions
                 .Configure<CustomerBaseOption>(configuration.GetSection("ConnectionStrings:CustomerBase"));
 
             services
-                .AddScoped<Database>()
-                .AddScoped<TableCustomer>();
+                .AddScoped<CreateDatabase>()
+                .AddScoped<CreateTableCustomer>();
 
             return services;
         }

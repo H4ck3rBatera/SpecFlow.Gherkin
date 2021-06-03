@@ -21,8 +21,8 @@ namespace SpecFlow.Gherkin.Data.DDL.Support.Extensions
             this IServiceProvider serviceProvider,
             CancellationToken cancellationToken)
         {
-            var service = serviceProvider.GetService<Database>();
-            service?.CreateAsync(cancellationToken).Wait();
+            var service = serviceProvider.GetService<CreateDatabase>();
+            service?.CreateAsync(cancellationToken).Wait(cancellationToken);
 
             return serviceProvider;
         }
@@ -31,8 +31,8 @@ namespace SpecFlow.Gherkin.Data.DDL.Support.Extensions
             this IServiceProvider serviceProvider,
             CancellationToken cancellationToken)
         {
-            var service = serviceProvider.GetService<TableCustomer>();
-            service?.CreateAsync(cancellationToken).Wait();
+            var service = serviceProvider.GetService<CreateTableCustomer>();
+            service?.CreateAsync(cancellationToken).Wait(cancellationToken);
 
             return serviceProvider;
         }
